@@ -1,0 +1,25 @@
+
+<p  class="btn btn-large disabled">
+<%= link_to 'New Post', '/posts/new' %></p>
+<br>
+<br>
+<table border=1px solid black align=center class="table table-hover">
+<tr>
+	<th>Title </th>
+	<th>Text  </th>
+        <th>Show </th>
+	<th>Edit </th>
+	<th>Delete</th>
+</tr>
+<% @posts.each do |post| %>
+<tr>
+	<td><%= post.title%></td>
+	<td><%= post.text%></td>
+   	 <td><%= link_to  image_tag('show.jpg',:size=>'42x42'), post_path(post) %></td>
+   	 <td><%= link_to image_tag('edit-icon.png', :size=>'42x42'), edit_post_path(post) %></td>
+	 <td> <%= link_to image_tag('del.jpg', :size=>'42x42'), post_path(post), :method=>'delete', :data=>{:confirm=>'Are u sure?'}%>
+</tr>
+<%end%>
+</table>
+<p class="btn btn-large disabled">
+<%= link_to 'Back', :action=>'index', :controller=>'welcome' %></p>

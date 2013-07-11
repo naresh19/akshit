@@ -1,0 +1,23 @@
+
+<html>
+<head>
+	<style>
+	body
+{
+background-color:LightGrey;
+}
+</style>
+</head>
+</style>
+</head>
+	</head>
+<body bgcolor="#E6E6FA">
+<center><%= image_tag("rails.png") %></center>
+<h1 align=center class="text-info">First Rails Application </h1>
+<h2 align=center class="text-success">Blog</h2>
+<p class="muted">Hello,</p><br>
+<p class="btn btn-large disabled"><%= link_to "new post", url_for(:action=>:new, :controller => :posts) %></p>
+<br><br>
+<p class="btn btn-large disabled" ><%= link_to "show all post", :action=>'index', :controller=>'posts' %></p>
+</body>
+</html>

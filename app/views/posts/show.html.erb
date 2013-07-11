@@ -1,0 +1,28 @@
+
+<p class="text-success">
+<strong>Tittle:</strong>
+<%= @post.title%>
+</p>
+<p  class="text-success">
+	<strong>Text:</strong>
+	<%= @post.text%>
+</p>
+<p>
+	<%if @post.comments.any? %>
+	<h2 class="text-info">Comments</h2>
+	<%end%>
+		<tr>
+		<td><%= render @post.comments%></td>
+		</tr>
+</p>
+<p>
+
+<h2><strong>Add a comment<strong></h2>
+<%= render 'comments/form' %>
+
+<p class="btn btn-large disabled">
+<%= link_to 'Back to new post', :controller=>'posts', :action=>'new' %></p>
+<br>
+<p class="btn btn-large disabled">
+<%= link_to 'Show all post', :controller=>'posts', :action=>'index' %>
+</p>

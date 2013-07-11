@@ -1,0 +1,14 @@
+<table class="table table-hover" class="form-inline">
+
+<strong>Commenter:</strong>
+  <%= comment.commenter %>
+</p>
+ 
+<p>
+  <strong>Body:</strong>
+  <%= comment.body %>
+</p>
+
+<p class="btn btn-large disabled">
+<%= link_to 'delete comment', [comment.post,comment], :method=>'delete', :data=>{:confirm=>'are u sure'} %>
+</p>

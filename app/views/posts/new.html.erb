@@ -1,0 +1,32 @@
+<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+ <script src="js/bootstrap.min.js"></script>
+ <h1 align=center> New Post</h1>
+<%= form_for :post, url: posts_path  do |f| %>
+<% if @post.errors.any? %>
+	<div id="container" class="text-error">
+	<h2> <%= pluralize(@post.errors.count, "error") %>prohibited from submiting the form:</h2>
+	<ul>
+		<% @post.errors.full_messages.each do |msg| %>
+			<li><%= msg %></li>
+		<% end%>
+	</ul>	
+	</div>
+<% end %>
+
+  <p class="lead" class="form-inline">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </p>
+ 
+  <p>
+    <%= f.label :text %><br>
+    <%= f.text_area :text %>
+  </p>
+ 
+  <p class="btn btn-large btn-primary">
+    <%= f.submit %>
+  </p>
+<% end %>
+
+<p class="btn btn-large disabled">
+<%= link_to 'Back', :controller=>'welcome', :action=>'index'%></p>
